@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head target="_blank">
+	
+<link rel="stylesheet" href="design.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>	
+</head> 
+<title>Online payment</title>
+<body>
+<ul>
+  <li><a href="onlinepayement.html">Online payment</a></li>
+  <li><a href="https://www.biat.tn/biat/Fr/cours-de-change_66_127" target="_blink">Quote change</a></li>
+  <li><a href="user.html">User</a></li>
+  <li id="li1" style="float:right"><a href="" class="quit">Log-out</a></li>
+</ul>
+<label id="lab1"></label>
+<marquee><h1>welcome to your personel space</h1></marquee>
+<center>
+    <label for="compte">Account</label>
+    <input type="number" id="compte1" name="compte" value=123456789  placeholder="Your Account.." readonly>
+  </center>
+<div class="form6">
+    <label for="compte">Campany's Account</label>
+    <input type="number" id="vvv" name="compte"  placeholder="Account..">
+     <label id="c1">Enter  compte please</label>
+      <label for="psd1">N BILL</label>
+    <input type="number" id="vvv1" name="password" placeholder="amount">
+     <p></p>
+    <label for="psd1">Amount to be paid</label>
+    <input type="number" id="vvv2" name="password" placeholder="amount">
+    <label for="cars">Choose company:</label>
+  <select name="company" id="company1">
+    <option value="SONEDE">SONEDE</option>
+    <option value="STEG">STEG</option>
+    <option value="TELECOM">TELECOM</option>
+    <option value="ORREDO">ORREDO</option>
+    <option value="ORANGE">ORANGE</option>
+  </select>
+  <button  id="pay1" class="submit">Pay</button>
+</div>
+
+<script>
+	var x=new Date();
+     $("#lab1").append(x)
+    function makebill(rib,companyacc,nbill,amoun,company,date){
+		return {
+			rib:rib,
+			companyaccount:companyacc,
+			Nbill:nbill,
+			Amout:amoun,
+			company:company,
+			date:date
+		}
+	}
+
+$("#li1").click(function(){
+				if(window.confirm("Are you sure to quit??")){
+					window.close()
+					window.open("login.html")
+				}
+			})
+
+$("#pay1").click(function(){
+var count=0;
+if($("#compte1").val() === "" ||$("#vvv").val() === "" || $("#vvv1").val()=== ""  || $("#vvv2").val() === ""){
+	window.alert("all fields must be completed")
+}else{
+for(var i=0;i<user.length;i++){
+
+    	if(user[i]["rib"] === parseInt($("#compte1").val())){
+    		if(user[i].balance>=parseInt($("#vvv2").val())){
+    		user[i].balance=user[i].balance-parseInt($("#vvv2").val())
+    		count++;
+}
+}
+}
+if(count>0){
+var x=new Date().toDateString();
+
+var obj=makebill(Number($("#compte1").val()),Number($("#vvv").val()),Number($("#vvv1").val()),Number($("#vvv2").val()),($("#company1").val()),x)
+pay.push(obj)
+	window.alert("add new payment done");
+}else{
+	window.alert("your balance is insufficient to make this payment")
+}
+}
+})
+
+</script>  	 
+</body>
+</html>

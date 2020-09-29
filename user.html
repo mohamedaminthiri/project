@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="design.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>	
+<title>User</title>
+
+	
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="onlinepayement.html">Online payment</a></li>
+  <li><a href="https://www.biat.tn/biat/Fr/cours-de-change_66_127" target="_blink">Quote change</a></li>
+  <li><a href="user.html">User</a></li>
+  <li id="li1" style="float:right"><a class="quit" href="#about">Log-out</a></li>
+</ul>
+<label id="lab1"></label>
+<marquee><h1>welcome to your personel space</h1></marquee>
+<center>
+    <label for="compte">Account</label>
+    <input type="number" id="compte1" name="compte" value=123456789 placeholder="Your Acoount.." readonly>
+    <button id="b5">History</button>&ensp;&ensp;<button id="b6">History Payment online</button>
+  </center>
+ <script>
+      var x=new Date();
+      $("#lab1").append(x)
+    	$divglobal=$('<center><div class="form2"></div></center>')
+        var $body = $('body');
+        $divglobal.html('');
+        $divglobal.appendTo($body)
+$("#b5").click(function(){
+
+   $divglobal.html('');
+        for(var i=0;i<operation.length;i++){
+          if(operation[i]["rib"] === parseInt($("#compte1").val())){
+          var $d=$('<div class="d"></div>');
+          var $x = $('<h3><p></p></h3>');
+          
+         $x.text(operation[i].type+"   "+   operation[i].value+"   "+   operation[i].date);
+
+          $x.appendTo($d);
+           $d.appendTo($divglobal)
+           $divglobal.appendTo($body)
+
+      }
+
+    }
+    for(var i=0;i<user.length;i++){
+
+    	if(user[i]["rib"] === parseInt($("#compte1").val())){
+         var $y = $('<h3><p></p></h3>');
+          $y.text("your balance is"+" "+ user[i].balance);
+          $y.appendTo($divglobal)
+}
+}
+           
+})
+$("#b6").click(function(){
+
+   $divglobal.html('');
+        for(var i=0;i<pay.length;i++){
+          if(pay[i]["rib"] === parseInt($("#compte1").val())){
+          var $d=$('<div class="d"></div>');
+          var $x = $('<h3><p></p></h3>');
+         $x.text(pay[i].nbill+"   "+   pay[i].amout+"   "+pay[i].company+"  "+   pay[i].date);
+
+          $x.appendTo($d);
+           $d.appendTo($divglobal)
+           $divglobal.appendTo($body)
+
+      }
+
+    }
+            
+})
+
+    </script>
+
+<script src="script.js"></script>	
+</body>
+</html>
